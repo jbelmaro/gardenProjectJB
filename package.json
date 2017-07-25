@@ -1,0 +1,20 @@
+{
+  "name": "gardenprojectjb",
+  "version": "1.0.0",
+  "description": "raspberry garden project JB",
+  "main": "nodeGarden.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "bootstrap": "^4.0.0-alpha.6",
+    "express": "^4.15.3",
+    "forever-monitor": "^1.7.1",
+    "pug": "^2.0.0-rc.2",
+    "pug-bootstrap": "0.0.15"
+  }
+}
