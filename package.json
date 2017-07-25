@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "",
+  "author": "JESUS BELMAR",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",
@@ -16,5 +16,23 @@
     "forever-monitor": "^1.7.1",
     "pug": "^2.0.0-rc.2",
     "pug-bootstrap": "0.0.15"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jbelmaro/gardenProjectJB.git"
+  },
+  "keywords": [
+    "node",
+    "bootstrap",
+    "nginx",
+    "arduino",
+    "raspberrypi",
+    "mqtt",
+    "web"
+  ],
+  "bugs": {
+    "url": "https://github.com/jbelmaro/gardenProjectJB/issues"
+  },
+  "homepage": "https://github.com/jbelmaro/gardenProjectJB#readme"
 }
