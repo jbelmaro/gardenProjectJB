@@ -1,38 +1,18 @@
 {
   "name": "gardenprojectjb",
-  "version": "1.0.0",
-  "description": "raspberry garden project JB",
-  "main": "nodeGarden.js",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node ./bin/www"
   },
-  "author": "JESUS BELMAR",
-  "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.17.2",
-    "bootstrap": "^4.0.0-alpha.6",
-    "express": "^4.15.3",
-    "forever-monitor": "^1.7.1",
+    "body-parser": "~1.17.1",
+    "cookie-parser": "^1.4.3",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "jade": "^1.11.0",
+    "morgan": "^1.8.2",
     "pug": "^2.0.0-rc.2",
-    "pug-bootstrap": "0.0.15"
-  },
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jbelmaro/gardenProjectJB.git"
-  },
-  "keywords": [
-    "node",
-    "bootstrap",
-    "nginx",
-    "arduino",
-    "raspberrypi",
-    "mqtt",
-    "web"
-  ],
-  "bugs": {
-    "url": "https://github.com/jbelmaro/gardenProjectJB/issues"
-  },
-  "homepage": "https://github.com/jbelmaro/gardenProjectJB#readme"
+    "serve-favicon": "^2.4.3"
+  }
 }
