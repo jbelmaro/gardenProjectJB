@@ -1,0 +1,21 @@
+extends ../_bootstrap
+append styles
+	// Custom styles for this template
+	link(href='/nodeGarden.js/css/signin.css', rel='stylesheet')
+block body
+	.content-container
+		.img-container
+		.blur
+		.container
+		legend Garden Project JB
+		form.form-signin
+			h2.form-signin-heading Inicia Sesión
+			label.sr-only(for='inputEmail') Usuario
+			input#inputEmail.form-control(type='text', placeholder='Usuario', required='', autofocus='')
+			label.sr-only(for='inputPassword') Contraseña
+			input#inputPassword.form-control(type='password', placeholder='Constraseña', required='')
+			.checkbox
+				label
+					input(type='checkbox', value='remember-me')
+					|  Recordar usuario
+			button.btn.btn-lg.btn-primary.btn-block(type='submit') Iniciar Sesión

@@ -8,6 +8,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
+var login = require('./routes/login');
 var users = require('./routes/users');
 
 
@@ -25,8 +26,14 @@ app.use('/nodeGarden.js/images',express.static(path.join(__dirname, '/public/ima
 app.use('/nodeGarden.js/js',express.static(path.join(__dirname, '/public/js')));
 app.use('/nodeGarden.js/css',express.static(path.join(__dirname, '/public/css')));
 
-app.use('/nodeGarden.js', index);
+app.use('/nodeGarden.js/login', login);
+app.use('/nodeGarden.js/index', index);
 app.use('/nodeGarden.js/users', users);
+
+app.get('/nodeGarden.js', function(req, res) {
+  res.redirect('/nodeGarden.js/login');
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
