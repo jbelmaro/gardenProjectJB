@@ -22,9 +22,9 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use('/nodeGarden.js/images',express.static(path.join(__dirname, '/public/images')));
-app.use('/nodeGarden.js/js',express.static(path.join(__dirname, '/public/js')));
-app.use('/nodeGarden.js/css',express.static(path.join(__dirname, '/public/css')));
+app.use('/static/images',express.static(path.join(__dirname, '/public/images')));
+app.use('/static/js',express.static(path.join(__dirname, '/public/js')));
+app.use('/static/css',express.static(path.join(__dirname, '/public/css')));
 
 app.use('/nodeGarden.js/login', login);
 app.use('/nodeGarden.js/index', index);
