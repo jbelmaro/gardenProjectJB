@@ -10,7 +10,7 @@ app.oauth = oauthserver({
 
 /* GET home page. */
 router.get('/', app.oauth.authorise(), function(err, req, res, next) {
-  console.error(err.stack);
+  console.error('ERROOOOOR: ' + err.stack);
   res.render('index', { title: 'Garden Project JB' });
   res.end();
 });
