@@ -22,6 +22,8 @@ app.set('view engine', 'pug');
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
+app.disable('x-powered-by');
+
 app.set('mongo', path.join(__dirname, 'mongo'));
 
 
