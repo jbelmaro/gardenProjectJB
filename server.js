@@ -74,7 +74,10 @@ app.get('/nodeGarden.js', function(req, res) {
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
-  next(err);
+  //next(err);
+	
+  res.redirect('/nodeGarden.js/login');
+
 });
 
 // error handler
