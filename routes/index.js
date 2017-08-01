@@ -11,7 +11,7 @@ app.oauth = oauthserver({
 /* GET home page. */
 router.get('/', app.oauth.authorise(), function(err, req, res, next) {
   if(err) {
-      console.error('ERROR GARDEN: ' err.status + " " + err.stack);
+      console.error('ERROR GARDEN: ' + err.status + " " + err.stack);
       res.redirect('/nodeGarden.js/login');
       res.end();
 
