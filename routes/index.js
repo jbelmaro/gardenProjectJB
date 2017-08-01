@@ -17,6 +17,8 @@ router.get('/', app.oauth.authorise(), function(err, req, res, next) {
 
   } else {	  
       res.render('index', { title: 'Garden Project JB' }); 
+      res.end();
+      next();
   }
 });
 
