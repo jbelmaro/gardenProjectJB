@@ -37,7 +37,7 @@ app.use('/nodeGarden.js/login', login);
 app.use('/nodeGarden.js/index', index);
 app.use('/nodeGarden.js/users', users);
 
-var mongoUri = 'mongodb://localhost/oauth';
+var mongoUri = 'mongodb://localhost/test';
 
 mongoose.connect(mongoUri, function(err, res) {
 	if (err) {

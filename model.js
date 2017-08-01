@@ -8,7 +8,8 @@ var tokenModel = require('./mongo/model/token');
  
 /**
  * Add example client and user to the database (for debug).
- */ var loadExampleData = function() {
+ */ 
+var loadExampleData = function() {
 	var client = new clientModel({
 		clientId: 'application',
 		clientSecret: 'secret'
@@ -31,9 +32,12 @@ var tokenModel = require('./mongo/model/token');
 		console.log('Created user', user);
 	});
 };
+
+
 /**
  * Dump the database content (for debug).
- */ var dump = function() {
+ */ 
+var dump = function() {
 	clientModel.find(function(err, clients) {
 		if (err) {
 			return console.error(err);
@@ -55,14 +59,16 @@ var tokenModel = require('./mongo/model/token');
 };
 /*
  * Get access token.
- */ var getAccessToken = function(bearerToken, callback) {
+ */ 
+var getAccessToken = function(bearerToken, callback) {
 	tokenModel.findOne({
 		accessToken: bearerToken
 	}, callback);
 };
 /**
  * Get client.
- */ var getClient = function(clientId, clientSecret, callback) {
+ */ 
+var getClient = function(clientId, clientSecret, callback) {
 	clientModel.findOne({
 		clientId: clientId,
 		clientSecret: clientSecret
@@ -70,12 +76,14 @@ var tokenModel = require('./mongo/model/token');
 };
 /**
  * Grant type allowed.
- */ var grantTypeAllowed = function(clientId, grantType, callback) {
+ */ 
+var grantTypeAllowed = function(clientId, grantType, callback) {
 	callback(false, grantType === "password");
 };
 /**
  * Save token.
- */ var saveAccessToken = function(accessToken, clientId, expires, user, 
+ */ 
+var saveAccessToken = function(accessToken, clientId, expires, user, 
 callback) {
 	var token = new tokenModel({
 		accessToken: accessToken,
@@ -87,7 +95,8 @@ callback) {
 };
 /*
  * Get user.
- */ var getUser = function(username, password, callback) {
+ */ 
+var getUser = function(username, password, callback) {
 	userModel.findOne({
 		username: username,
 		password: password
@@ -95,7 +104,8 @@ callback) {
 };
 /**
  * Export model definition object.
- */ module.exports = {
+ */ 
+module.exports = {
 	getAccessToken: getAccessToken,
 	getClient: getClient,
 	grantTypeAllowed: grantTypeAllowed,
