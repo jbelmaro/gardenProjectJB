@@ -35,37 +35,45 @@ app.use('/static/images',express.static(path.join(__dirname, '/public/images')))
 app.use('/static/js',express.static(path.join(__dirname, '/public/js')));
 app.use('/static/css',express.static(path.join(__dirname, '/public/css')));
 
-app.use('/nodeGarden.js/login', login);
-app.use('/nodeGarden.js/index', index);
-app.use('/nodeGarden.js/users', users);
+
 
 var mongoUri = 'mongodb://localhost/test';
 
 mongoose.connect(mongoUri, function(err, res) {
-	if (err) {
-		return console.error('Error connecting to "%s":', mongoUri, err);
-	}
-	console.log('Connected successfully to "%s"', mongoUri);
+  if (err) {
+    return console.error('Error connecting to "%s":', mongoUri, err);
+  }
+  console.log('Connected successfully to "%s"', mongoUri);
 });
 
 app.oauth = oauthserver({
-	model: require('./model.js'),
-	grants: ['password'],
-	debug: true
+  model: require('./model.js'),
+  grants: ['password'],
+  debug: true
 });
 
 app.all('/nodeGarden.js/oauth/token', app.oauth.grant());
 
-app.get('/nodeGarden.js/', app.oauth.authorise(), function (req, res) {
-	res.send('Congratulations, you are in a secret area!');
+app.get('/nodeGarden.js/index', app.oauth.authorise(), function (req, res) {
+
+
+  res.send('Congratulations, you are in a secret area!');
 });
 
-app.use(app.oauth.errorHandler());
+app.use(app.oauth.errorHandler(),  function(err, req, res, next) {
 
+console.log('ENTRA EN ERRORHANDLER OAUTH: '+ err.stack);
 
+next();
+});
+
+app.use('/nodeGarden.js/login', login);
+app.use('/nodeGarden.js/index', index);
+app.use('/nodeGarden.js/users', users);
 
 
 app.get('/nodeGarden.js', function(req, res) {
+  console.log('Se redirige a nodeGarden.js/login');
   res.redirect('/nodeGarden.js/login');
 });
 
@@ -75,10 +83,27 @@ app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   //next(err);
-	
+ console.log('Se redirige a nodeGarden.js/login desde 404');  
   res.redirect('/nodeGarden.js/login');
 
 });
+
+app.get('/404', function(req, res, next){
+  // trigger a 404 since no other middleware
+  // will match /404 after this one, and we're not
+  // responding here
+  res.redirect('/nodeGarden.js/login');
+});
+
+app.get('/400', function(req, res, next){
+  // trigger a 400 since no other middleware
+  // will match /400 after this one, and we're not
+  // responding here
+ console.log('Se redirige a nodeGarden.js/login desde 400');
+
+  res.redirect('/nodeGarden.js/login');
+});
+
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -96,3 +121,4 @@ module.exports = app;
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')
 })
+

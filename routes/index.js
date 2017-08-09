@@ -10,16 +10,11 @@ app.oauth = oauthserver({
 
 /* GET home page. */
 router.get('/', app.oauth.authorise(), function(err, req, res, next) {
-  if(err) {
-      console.error('ERROR GARDEN: ' + err.status + " " + err.stack);
-      res.redirect('/nodeGarden.js/login');
-      res.end();
-
-  } else {	  
       res.render('index', { title: 'Garden Project JB' }); 
       res.end();
-      next();
-  }
+
 });
+
+
 
 module.exports = router;
