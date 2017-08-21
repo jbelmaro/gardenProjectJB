@@ -6,7 +6,6 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var oauthserver = require('oauth2-server');
 var mongoose = require('mongoose');
 
 var index = require('./routes/index');
@@ -46,26 +45,6 @@ mongoose.connect(mongoUri, function(err, res) {
   console.log('Connected successfully to "%s"', mongoUri);
 });
 
-app.oauth = oauthserver({
-  model: require('./model.js'),
-  grants: ['password'],
-  debug: true
-});
-
-app.all('/nodeGarden.js/oauth/token', app.oauth.grant());
-
-app.get('/nodeGarden.js/index', app.oauth.authorise(), function (req, res) {
-
-
-  res.send('Congratulations, you are in a secret area!');
-});
-
-app.use(app.oauth.errorHandler(),  function(err, req, res, next) {
-
-console.log('ENTRA EN ERRORHANDLER OAUTH: '+ err.stack);
-
-next();
-});
 
 app.use('/nodeGarden.js/login', login);
 app.use('/nodeGarden.js/index', index);
