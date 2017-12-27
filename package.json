@@ -9,7 +9,7 @@
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
     "debug": "~2.6.3",
-    "express": "~4.15.2",
+    "express": "^4.15.5",
     "jade": "^1.11.0",
     "mongoose": "^4.10.8",
     "morgan": "^1.8.2",
@@ -17,5 +17,17 @@
     "passport-oauth2": "^1.4.0",
     "pug": "^2.0.0-rc.2",
     "serve-favicon": "^2.4.3"
-  }
+  },
+  "description": "Proyecto de Jardinería con Raspberry y sensores con MQTT (Arduino)",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jbelmaro/gardenProjectJB.git"
+  },
+  "author": "JBELMARO",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jbelmaro/gardenProjectJB/issues"
+  },
+  "homepage": "https://github.com/jbelmaro/gardenProjectJB#readme"
 }
